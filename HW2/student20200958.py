@@ -23,17 +23,23 @@ for row in ws:
 total.sort(key=lambda x:x[1], reverse=True)
 num = len(total)
 
+cp=math.trunc(num * 0.85)
+b0=math.trunc(num * 0.7)
+bp=math.trunc(b0 * 0.5)
+a0=math.trunc(num * 0.3)
+ap=math.trunc(a0 * 0.5)
+
 for i in range (num):
         ws.cell(row = total[i][0], column = 8).value = 'C0'
-for i in range(int (num * 0.85)):
+for i in range(int(cp)):
         ws.cell(row = total[i][0], column = 8).value = 'C+'
-for i in range(int (num * 0.7)):
+for i in range(int(b0)):
         ws.cell(row = total[i][0], column = 8).value = 'B0'
-for i in range(int (num * 0.5)):
+for i in range(int(bp)):
         ws.cell(row = total[i][0], column = 8).value = 'B+'
-for i in range(int (num * 0.3)):
+for i in range(int(a0)):
         ws.cell(row = total[i][0], column = 8).value = 'A0'
-for i in range(int (num * 0.15)):
+for i in range(int(ap)):
         ws.cell(row = total[i][0], column = 8).value = 'A+'
 
 wb.save("student.xlsx")
