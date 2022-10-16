@@ -23,11 +23,11 @@ for row in ws:
 total.sort(key=lambda x:x[1], reverse=True)
 num = len(total)
 
-cp=math.trunc(num * 0.85)
-b0=math.trunc(num * 0.7)
-bp=math.trunc(b0 * 0.5)
-a0=math.trunc(num * 0.3)
-ap=math.trunc(a0 * 0.5)
+a0 = math.floor(num * 0.3)
+ap = math.floor(a0 * 0.5)
+b0 = math.floor(num * 0.7)
+bp = a0 + math.floor((b0 - a0) * 0.5)
+cp = math.floor(num * 0.85)
 
 for i in range (num):
         ws.cell(row = total[i][0], column = 8).value = 'C0'
