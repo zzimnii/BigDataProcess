@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import openpyxl
+import math
 
 wb = openpyxl.load_workbook("student.xlsx")
 ws = wb['Sheet1']
@@ -14,7 +15,7 @@ for row in ws:
 		sum_v += ws.cell(row = row_id, column = 5).value * 0.34
 		sum_v += ws.cell(row = row_id, column = 6).value
 		ws.cell(row = row_id, column = 7).value = sum_v
-		total.append(ws.cell(row = row_id, column = 7).value)
+		total.append([row_id, sum_v])
 	row_id += 1
 
 #grade구하기
