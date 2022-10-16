@@ -16,9 +16,23 @@ for row in ws:
 		ws.cell(row = row_id, column = 7).value = sum_v
 		total.append(ws.cell(row = row_id, column = 7).value)
 	row_id += 1
-#여기까지는 total값 구하는 코드
 
-total.sort()
-print(total)
+#grade구하기
+
+total.sort(key=lambda x:x[1], reverse=True)
+num = len(total)
+
+for i in range (num):
+        ws.cell(row = total[i][0], column = 8).value = 'C0'
+for i in range(int (num * 0.85)):
+        ws.cell(row = total[i][0], column = 8).value = 'C+'
+for i in range(int (num * 0.7)):
+        ws.cell(row = total[i][0], column = 8).value = 'B0'
+for i in range(int (num * 0.5)):
+        ws.cell(row = total[i][0], column = 8).value = 'B+'
+for i in range(int (num * 0.3)):
+        ws.cell(row = total[i][0], column = 8).value = 'A0'
+for i in range(int (num * 0.15)):
+        ws.cell(row = total[i][0], column = 8).value = 'A+'
 
 wb.save("student.xlsx")
